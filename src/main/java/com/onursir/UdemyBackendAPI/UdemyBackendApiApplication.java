@@ -2,6 +2,7 @@ package com.onursir.UdemyBackendAPI;
 
 import com.onursir.UdemyBackendAPI.entity.Author;
 import com.onursir.UdemyBackendAPI.repositories.AuthorRepository;
+import com.onursir.UdemyBackendAPI.repositories.VideoRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +16,7 @@ public class UdemyBackendApiApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AuthorRepository repository){
+	public CommandLineRunner commandLineRunner(AuthorRepository repository, VideoRepository videoRepository){
 		return args -> {
 			var author = Author.builder()
 					.firstName("onur")
