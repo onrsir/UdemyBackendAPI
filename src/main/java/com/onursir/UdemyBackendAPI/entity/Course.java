@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -13,6 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 public class Course extends BaseEntity {
+
+    public Course(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
 
     private String title;
     private String description;
@@ -27,5 +33,7 @@ public class Course extends BaseEntity {
 
     @OneToMany(mappedBy = "course")
     private List<Section> sections;
+
+
 
 }

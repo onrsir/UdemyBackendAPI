@@ -33,6 +33,12 @@ public interface AuthorRepository extends JpaRepository<Author,Integer> {
     List<Author> findAllByFirstNameInIgnoreCase(List<String> firstNames);
 
 
+    List<Author> findTop3ByOrderByAgeDesc();
+
+    List<Author> findByEmailContainingIgnoreCase(String mail);
+
+    List<Author> getAllBy();
+
 
 
 }

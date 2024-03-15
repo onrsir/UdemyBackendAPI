@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -19,6 +20,9 @@ import java.util.List;
 )
 public class Author extends BaseEntity{
 
+    {
+        courses = new ArrayList<>();
+    }
 
     @Column(name = "f_name",length = 35)
     private String firstName;
@@ -32,7 +36,8 @@ public class Author extends BaseEntity{
 
 
 
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany(mappedBy = "authors", fetch = FetchType.EAGER)
     private List<Course> courses;
+
 
 }
